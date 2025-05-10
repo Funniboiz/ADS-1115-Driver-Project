@@ -9,20 +9,32 @@ We use a potentiometer 100kΩ for testing.
 # Usage
 * Check if the Raspberry Pi has the necessary driver compiler tools installed
   1. Open the Terminal and run the command:
-          uname -r
-     This will display the version of the Raspberry Pi operating system (e.g., 6.1.21+).
+          _uname -r_
+     * This will display the version of the Raspberry Pi operating system (e.g., 6.1.21+).
   3. Then, access the Raspberry Pi via VNC and go to:
-         /lib/modules
-     Check if there's a folder matching the kernel version you just noted (e.g., 6.1.21+). Open that folder and see if it contains a build folder.
-     If the build folder is missing, install the necessary kernel headers using the following commands:
-         sudo apt update
-         sudo apt install raspberrypi-kernel-headers
+        _ /lib/modules_
+     * Check if there's a folder matching the kernel version you just noted (e.g., 6.1.21+). Open that folder and see if it contains a build folder.
+     * If the build folder is missing, install the necessary kernel headers using the following commands:
+         _sudo apt update
+         sudo apt install raspberrypi-kernel-headers_
   4. Convert ads1115-overlay.dts to ads1115-overlay.dtbo
-     You can compile the Device Tree Source (.dts) file into a Device Tree Blob Overlay (.dtbo) using the following command:
-         dtc -I dts -O dtb -o ads1115-overlay.dtbo ads1115-overlay.dts
-     Make sure you run this command from the directory where your .dts file is located.
-
-
+     * You can compile the Device Tree Source (.dts) file into a Device Tree Blob Overlay (.dtbo) using the following command:
+         _dtc -I dts -O dtb -o ads1115-overlay.dtbo ads1115-overlay.dts_
+     * Make sure you run this command from the directory where your .dts file is located.
+* Compile the Driver File into a Module
+  * This method requires hardware.
+  1. Create a Makefile and place it in the same directory as the ads1115_ioctl.c file.
+  2. Open a terminal and use the cd command to navigate to the directory containing the Makefile and the ads1115_ioctl.c file.
+  3. Run the command:
+      _make_
+     * This will automatically compile ads1115_ioctl.c into a .ko file (kernel object file), which can then be loaded into the operating system and is ready to run.
+* Loading the Driver
+     * Once the _.ko file_ is generated, load it into the operating system using the command:
+          _sudo insmod ads1115_ioctl.ko_
+     * To remove the driver module, use:
+           _sudo rmmod ads1115_ioctl_
+     * After that, use the following command to check whether ads1115 is listed among the loaded modules:
+          _lsmod_
 
 
 
