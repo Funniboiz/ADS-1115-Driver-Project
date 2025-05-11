@@ -1,7 +1,3 @@
-#Contributors
-_Ho Quang Thuan-21146156_
-_Nguyen Khanh Duy-22146092_
-_Nguyen Quoc Bao-22146079_
 # ADS-1115 Driver
 Driver used for ADS-1115 Module
 # Information 
