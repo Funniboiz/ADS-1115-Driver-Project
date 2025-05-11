@@ -49,7 +49,8 @@ We use a potentiometer 100kΩ for testing.
      
  # Reference
   https://how2electronics.com/how-to-use-ads1115-16-bit-adc-module-with-raspberry-pi/
-
+  https://www.ti.com/sitesearch/en-us/docs/universalsearch.tsp?langPref=en-US&nr=609&searchTerm=ads1115#q=ads1115
+  
 
 
 
